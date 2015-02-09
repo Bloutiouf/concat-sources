@@ -1,0 +1,40 @@
+#!/usr/bin/env node
+
+var argv = require("yargs")
+	.usage("Concatenate source files together, taking into account source map files.")
+	.example("concat-sources a.js b.js.map ... -o concatenated.js -m concatenated.js.map", "")
+	.options("encoding", {
+		alias: "e",
+		default: "utf8",
+		describe: "Encoding"
+	})
+	.options("header", {
+		alias: "h",
+		describe: "Header"
+	})
+	.options("map", {
+		alias: "m",
+		describe: "Generated source map name"
+	})
+	.options("output", {
+		alias: "o",
+		demand: true,
+		describe: "Generated source name"
+	})
+	.argv;
+
+var concat = require("../index");
+var fs = require("fs");
+
+concat.files(argv._, argv, function(err, concatenated) {
+	if (err) throw err;
+	
+	return fs.writeFile(argv.output, concatenated[0], function(err) {
+		if (err) throw err;
+		
+		if (argv.map)
+			return fs.writeFile(argv.map, concatenated[1], function(err) {
+				if (err) throw err;
+			});
+	});
+});

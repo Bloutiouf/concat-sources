@@ -1,0 +1,10 @@
+{
+  "camelcase": true,
+  "eqeqeq": true,
+  "freeze": true,
+  "maxcomplexity": 15,
+  "maxdepth": 5,
+  "maxparams": 5,
+  "mocha": true,
+  "node": true
+}

@@ -1,0 +1,21 @@
+{
+  "name": "concat-sources",
+  "version": "1.0.0",
+  "description": "Concatenate source files together, taking into account source map files.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha && jshint ."
+  },
+  "keywords": [
+    "cat",
+    "concat",
+    "sourcemap"
+  ],
+  "author": "Bloutiouf <bloutiouf@gmail.com> (http://bloutiouf.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^0.9.0",
+    "source-map": "^0.2.0",
+    "yargs": "^2.3.0"
+  }
+}
