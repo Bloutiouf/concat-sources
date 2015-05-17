@@ -1,6 +1,6 @@
 {
   "name": "concat-sources",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Concatenate source files together, taking into account source map files.",
   "main": "index.js",
   "scripts": {
