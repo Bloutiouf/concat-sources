@@ -83,6 +83,7 @@ exports.sources = function(contents, options) {
 		if (Array.isArray(content) && content[1]) {
 			var map = new sourceMap.SourceMapConsumer(content[1]);
 			map.eachMapping(function(mapping) {
+				if (!mapping.originalLine) return;
 				var source = content[2] || (options && options.sourceMap ? options.sourceMap(mapping.source, index) : mapping.source);
 				return generator.addMapping({
 					generated: {
